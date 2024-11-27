@@ -2,7 +2,7 @@
 
 ID=$(id -u)
 
-if [ID -ne 0]
+if [$ID -ne 0]
 then
     echo " Error : : this is not root user"
 exit 1
