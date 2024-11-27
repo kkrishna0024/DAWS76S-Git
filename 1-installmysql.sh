@@ -13,7 +13,7 @@ fi
 
 yum install mysql -y
 
-if [$? -ne 0]
+if [ $? -ne 0 ]
 then
     echo "error:: install mysql is failed"
     exit 1
@@ -24,7 +24,7 @@ fi
 
 yum install git -y
 
-if [$? -ne 0]
+if [ $? -ne 0 ]
 then
     echo "error:: install git is failed"
     exit 1
