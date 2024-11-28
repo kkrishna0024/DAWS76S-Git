@@ -1,6 +1,6 @@
 ID=$(id -u)
 TIMESTAMP=$(date +$F-$H-$M-$s)
-LOGFILE="/temp/$0-$TIMESTAMP"  
+LOGFILE="$0-$TIMESTAMP"  
 
 VALIDATE () {
 
