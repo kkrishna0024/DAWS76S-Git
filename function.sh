@@ -1,8 +1,8 @@
 #!/bin/bash
 
 ID=$(id -u)
-
-echo " scriptname $0"
+Date=$(date)
+echo " scriptname $0  $(date)"
 
 VALIDATE () {
 
