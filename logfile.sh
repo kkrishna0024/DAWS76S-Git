@@ -23,11 +23,11 @@ else
 
 fi
 
-yum install mysql -y >>$LOGFILE
+yum install mysql -y &>>$LOGFILE
 
 VALIDATE $? "installing Mysql"
 
 
-yum install git -y >>$LOGFILE
+yum install git -y &>>$LOGFILE
 
 VALIDATE $? " intalling git"
