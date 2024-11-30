@@ -26,19 +26,17 @@ else
     echo -e " $G you are root user"
 fi
 
-echo " all arguments passed $@"
-
 for package in $@
  do 
   yum list installed $package 
 
-  if [$? -ne 0]
+  if [ $? -ne 0 ]
    then 
      yum install $package -y &>>LOGFILE
      VALIDATE $? "installed  $package $G success"
     else 
 
-       echo "instlled $package $Y already installed"
+       echo -e "instlled $package $Y already installed"
   fi
 
 done
