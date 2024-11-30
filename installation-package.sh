@@ -36,7 +36,7 @@ for package in $@
      VALIDATE $? "installed $package"
     else 
 
-       echo -e "$package already installed $y Skipping"
+       echo -e "$package already installed $Y Skipping$N"
   fi
 
 done
