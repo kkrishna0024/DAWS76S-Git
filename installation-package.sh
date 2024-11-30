@@ -20,10 +20,10 @@ VALIDATE () {
 
 if [ $ID -ne 0 ]
 then
-    echo -e " Error : :$R this is not root user"
+    echo -e " Error : :$R this is not root user$N"
     exit 1
 else 
-    echo -e " $G you are root user$N"
+    echo  " you are root user"
 fi
 
 for package in $@
