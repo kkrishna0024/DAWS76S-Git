@@ -28,7 +28,7 @@ fi
 
 for package in $@
  do 
-  yum list installed $package 
+  yum list installed $package  &>>$LOGFILE
 
   if [ $? -ne 0 ]
    then 
@@ -36,7 +36,7 @@ for package in $@
      VALIDATE $? "installed  $package $G success"
     else 
 
-       echo -e "instlled $package $Y already installed"
+       echo -e "$package already installed $y Skipping"
   fi
 
 done
