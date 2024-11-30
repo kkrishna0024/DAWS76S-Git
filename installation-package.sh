@@ -33,7 +33,7 @@ for package in $@
   if [ $? -ne 0 ]
    then 
      yum install $package -y &>>LOGFILE
-     VALIDATE $? "installed  $package $G success"
+     VALIDATE $? "installed $package"
     else 
 
        echo -e "$package already installed $y Skipping"
