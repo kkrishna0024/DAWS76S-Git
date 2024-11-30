@@ -23,7 +23,7 @@ then
     echo -e " Error : :$R this is not root user"
     exit 1
 else 
-    echo -e " $G you are root user"
+    echo -e " $G you are root user$N"
 fi
 
 for package in $@
