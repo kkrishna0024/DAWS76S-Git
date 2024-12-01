@@ -48,32 +48,32 @@ dnf module enable nodejs:18 -y
 
 VALIDATE $? "enabled nodejs18"
 
-dnf install nodejs -y
+dnf install nodejs -y &>>LOGFILE
 
 VALIDATE $? "installed nodejs"
 
-useradd roboshop
+useradd roboshop  &>>LOGFILE
 
 VALIDATE $? "user added"
 
-mkdir /app
+mkdir /app  &>>LOGFILE
 
 VALIDATE $? "created app diretory"
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip
+curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip  &>>LOGFILE
 cd /app 
-unzip /tmp/catalogue.zip
+unzip /tmp/catalogue.zip  &>>LOGFILE
 VALIDATE $? "unzipped catalogue"
 cd /app 
-npm install 
+npm install   &>>LOGFILE
 VALIDATE $? "libraries intalled"
-systemctl daemon-reload
+systemctl daemon-reload  &>>LOGFILE
 VALIDATE $? "reloaded daemon"
-systemctl enable catalogue
+systemctl enable catalogue  &>>LOGFILE
 VALIDATE $? "enabled cataloge"
-systemctl start catalogue
+systemctl start catalogue  &>>LOGFILE
 VALIDATE $? "started catalogue"
-dnf install mongodb-org-shell -y
+dnf install mongodb-org-shell -y  &>>LOGFILE
 VALIDATE $? "installed mango db"
 
-mongo --host 172.31.38.133 </app/schema/catalogue.js
+mongo --host 172.31.38.133 </app/schema/catalogue.js  &>>LOGFILE
 VALIDATE $? "loaded schema"
