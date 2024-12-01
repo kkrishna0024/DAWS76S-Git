@@ -62,32 +62,34 @@ VALIDATE $? "robohop user created"
 
 mkdir -p /app  &>>LOGFILE
 
-curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip  &>>LOGFILE
+curl -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip  &>>LOGFILE
 cd /app 
 
-unzip -o /tmp/catalogue.zip  &>>LOGFILE
+unzip -o /tmp/user.zip  &>>LOGFILE
 VALIDATE $? "unzipped catalogue"
 
 cd /app 
 npm install   &>>LOGFILE
 VALIDATE $? "libraries intalled"
 
-cp  /root/DAWS76S-Git/catalogue.service /etc/systemd/system/catalogue.service
-VALIDATE $? "copiued catalogue services file"
+cp /root/DAWS76S-Git/user.services /etc/systemd/system/user.service
+
+VALIDATE $? "copied user service file"
 
 systemctl daemon-reload  &>>LOGFILE
 VALIDATE $? "reloaded daemon"
 
-systemctl enable catalogue  &>>LOGFILE
-VALIDATE $? "enabled cataloge"
+systemctl enable user  &>>LOGFILE
+VALIDATE $? "enabled user"
 
-systemctl start catalogue  &>>LOGFILE
-VALIDATE $? "started catalogue"
+systemctl start user  &>>LOGFILE
+VALIDATE $? "started catalogueuser"
 
-cp /root/DAWS76S-Git/mongo.repo /etc/yum.repos.d/mongo.repo
+cp  /root/DAWS76S-Git/mongo.repo  /etc/yum.repos.d/mongo.repo
 
-dnf install mongodb-org-shell -y  &>>LOGFILE
-VALIDATE $? "installed mango db"
+dnf install mongodb-org-shell -y &>>LOGFILE
 
-mongo --host 172.31.38.133 </app/schema/catalogue.js  &>>LOGFILE
-VALIDATE $? "loaded schema"
+VALIDATE $? "installed mangodb client"
+mongo --host 172.31.38.133 </app/schema/user.js
+
+VALIDATE $? "schema loaded"
