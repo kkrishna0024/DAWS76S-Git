@@ -54,17 +54,21 @@ VALIDATE $? "installed nodejs"
 
 useradd roboshop  &>>LOGFILE
 
-mkdir /app  &>>LOGFILE
+#mkdir /app  &>>LOGFILE
 
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip  &>>LOGFILE
 cd /app 
+
 unzip /tmp/catalogue.zip  &>>LOGFILE
 VALIDATE $? "unzipped catalogue"
+
 cd /app 
 npm install   &>>LOGFILE
 VALIDATE $? "libraries intalled"
+
 cp  /home/centos/DAWS76S-Git/catalogue.service /etc/systemd/system/catalogue.service
 VALIDATE $? "copiued catalogue services file"
+
 systemctl daemon-reload  &>>LOGFILE
 VALIDATE $? "reloaded daemon"
 
