@@ -85,11 +85,11 @@ VALIDATE $? "enabled user"
 systemctl start user  &>>LOGFILE
 VALIDATE $? "started user"
 
-cp  /root/DAWS76S-Git/mongo.repo  /etc/yum.repos.d/mongo.repo
+cp  /root/DAWS76S-Git/mongo.repo  /etc/yum.repos.d/mongo.repo &>>LOGFILE
 
 dnf install mongodb-org-shell -y &>>LOGFILE
 
 VALIDATE $? "installed mangodb client"
-mongo --host 172.31.38.133 </app/schema/user.js
+mongo --host 172.31.38.133 </app/schema/user.js &>>LOGFILE
 
 VALIDATE $? "schema loaded"

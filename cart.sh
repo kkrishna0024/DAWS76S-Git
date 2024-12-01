@@ -72,7 +72,7 @@ cd /app
 npm install   &>>LOGFILE
 VALIDATE $? "libraries intalled"
 
-cp /root/DAWS76S-Git/cart.service /etc/systemd/system/cart.service
+cp /root/DAWS76S-Git/cart.service /etc/systemd/system/cart.service &>>LOGFILE
 
 VALIDATE $? "copied cart service file"
 
