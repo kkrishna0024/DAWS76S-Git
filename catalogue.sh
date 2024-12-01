@@ -54,7 +54,6 @@ VALIDATE $? "installed nodejs"
 
 useradd roboshop  &>>LOGFILE
 
-VALIDATE $? " user created"
 
 mkdir /app  &>>LOGFILE
 
