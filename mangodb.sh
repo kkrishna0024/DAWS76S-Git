@@ -45,3 +45,20 @@ done
 
 cp mongo.repo /etc/yum.repos.d/ &>>$LOGFILE
 VALIDATE $? " copied mangoDB repo"
+
+dnf install mongodb-org -y &>>$LOGFILE
+VALIDATE $? " imstalled mangoDB"
+
+systemctl enable mongod
+VALIDATE $? " enabled mangoDB"
+
+systemctl start mongod
+VALIDATE $? " starting mangoDB"
+
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mongod.conf
+
+VALIDATE $? " replaced host details for remote access"
+
+systemctl restart mongod
+
+VALIDATE $? " restarting mangoDB"
