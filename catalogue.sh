@@ -84,7 +84,7 @@ VALIDATE $? "enabled cataloge"
 systemctl start catalogue  &>>LOGFILE
 VALIDATE $? "started catalogue"
 
-cp mongo.repo /etc/yum.repos.d/mongo.repo
+cp /root/mongo.repo /etc/yum.repos.d/mongo.repo
 
 dnf install mongodb-org-shell -y  &>>LOGFILE
 VALIDATE $? "installed mango db"
