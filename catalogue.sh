@@ -43,8 +43,8 @@ for package in $@
 
 done
 
-dnf module disable nodejs -y
-dnf module enable nodejs:18 -y
+dnf module disable nodejs -y &>>LOGFILE
+dnf module enable nodejs:18 -y &>>LOGFILE
 
 VALIDATE $? "enabled nodejs18"
 
@@ -53,8 +53,6 @@ dnf install nodejs -y &>>LOGFILE
 VALIDATE $? "installed nodejs"
 
 useradd roboshop  &>>LOGFILE
-
-VALIDATE $? "user added"
 
 mkdir /app  &>>LOGFILE
 
@@ -66,12 +64,16 @@ VALIDATE $? "unzipped catalogue"
 cd /app 
 npm install   &>>LOGFILE
 VALIDATE $? "libraries intalled"
+
 systemctl daemon-reload  &>>LOGFILE
 VALIDATE $? "reloaded daemon"
+
 systemctl enable catalogue  &>>LOGFILE
 VALIDATE $? "enabled cataloge"
+
 systemctl start catalogue  &>>LOGFILE
 VALIDATE $? "started catalogue"
+
 dnf install mongodb-org-shell -y  &>>LOGFILE
 VALIDATE $? "installed mango db"
 
