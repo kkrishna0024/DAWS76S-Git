@@ -55,8 +55,8 @@ id roboshop
 if ( $? -ne 0 )
 then 
  useradd roboshop  &>>LOGFILE
-
- else -e " roboshop user already exist $Y skipping $N"
+ else 
+ echo -e "roboshop user already exist $Y skipping $N"
 fi
 VALIDATE $? "robohop user created"
 
