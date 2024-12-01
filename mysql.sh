@@ -47,6 +47,10 @@ dnf module disable mysql -y  &>>$LOGFILE
 
 VALIDATE $? "mysql module disabled" 
 
+cp /root/DAWS76S-Git/mysql.repo  etc/yum.repos.d/mysql.repo &>>$LOGFILE
+
+VALIDATE $? "mysql repo file copied"
+
 dnf install mysql-community-server -y &>>$LOGFILE
 
 VALIDATE $? "mysql community server installed"
