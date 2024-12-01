@@ -66,13 +66,13 @@ curl -o /tmp/user.zip https://roboshop-builds.s3.amazonaws.com/user.zip  &>>LOGF
 cd /app 
 
 unzip -o /tmp/user.zip  &>>LOGFILE
-VALIDATE $? "unzipped catalogue"
+VALIDATE $? "unzipped user"
 
 cd /app 
 npm install   &>>LOGFILE
 VALIDATE $? "libraries intalled"
 
-cp /root/DAWS76S-Git/user.services /etc/systemd/system/user.service
+cp /root/DAWS76S-Git/user.service /etc/systemd/system/user.service
 
 VALIDATE $? "copied user service file"
 
@@ -83,7 +83,7 @@ systemctl enable user  &>>LOGFILE
 VALIDATE $? "enabled user"
 
 systemctl start user  &>>LOGFILE
-VALIDATE $? "started catalogueuser"
+VALIDATE $? "started user"
 
 cp  /root/DAWS76S-Git/mongo.repo  /etc/yum.repos.d/mongo.repo
 
