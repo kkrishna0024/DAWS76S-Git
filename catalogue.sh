@@ -56,7 +56,6 @@ useradd roboshop  &>>LOGFILE
 
 mkdir /app  &>>LOGFILE
 
-VALIDATE $? "created app diretory"
 curl -o /tmp/catalogue.zip https://roboshop-builds.s3.amazonaws.com/catalogue.zip  &>>LOGFILE
 cd /app 
 unzip /tmp/catalogue.zip  &>>LOGFILE
