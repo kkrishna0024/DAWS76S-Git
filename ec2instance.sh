@@ -5,9 +5,7 @@ SG_ID=sg-05ea3dc55b6da7ad6
 instances=("Mangodb" "mysql" "redis" "user" "cart" "web" "shipping" "payments" "dispatch" "rabitmq" "catalogue")
 
 for i in "${instances [@]}"
-
-echo "instance is : $i"
- do 
+do 
   if [$i= "Mangodb"] || [$i= "mysql"] || [$i= "redis"]
   then 
    instance_type=t3.small
