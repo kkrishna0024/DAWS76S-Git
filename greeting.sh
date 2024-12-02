@@ -19,7 +19,7 @@ usage(){
       n) name="$OPTARG" ;;
        w) wishes="$OPTARG" ;;
        :) usage; exit ;;
-       \?) echo "error invalid options "$OPTARG"" >$2; usage;exit;
+       \?) echo "error invalid options "$OPTARG"" >$2; usage;exit;;
       h|*) usage; exit1 ;;
      esac
 done

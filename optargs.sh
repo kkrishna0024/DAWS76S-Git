@@ -1,11 +1,11 @@
 #!/bin/bash
-
+ 
 helpFunction()
 {
    echo ""
-   echo "Usage: $0 -a parameterA -b parameterB -c parameterC"
-   echo -e "\t-a Description of what is parameterA"
-   echo -e "\t-b Description of what is parameterB"
+   echo "Usage: $0 -n name -w wishes -c contact"
+   echo -e "\t-n Description of what is parameterA"
+   echo -e "\t-w Description of what is parameterB"
    echo -e "\t-c Description of what is parameterC"
    exit 1 # Exit script after printing help
 }
