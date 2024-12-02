@@ -4,7 +4,7 @@ AMI=ami-0b4f379183e5706b9
 SG_ID=sg-05ea3dc55b6da7ad6
 instances=("Mangodb" "mysql" "redis" "user" "cart" "web" "shipping" "payments" "dispatch" "rabitmq" "catalogue")
 
-for i in "${instances [@]}"
+for i in "${instances[@]}"
 do 
   if [$i= "Mangodb"] || [$i= "mysql"] || [$i= "redis"]
   then 
