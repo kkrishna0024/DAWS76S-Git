@@ -6,7 +6,7 @@ instances=("Mangodb" "mysql" "redis" "user" "cart" "web" "shipping" "payments" "
 
 for i in "${instances[@]}"
 do 
-  if [$i= "Mangodb"] || [$i= "mysql"] || [$i= "redis"]
+  if [ $i== "Mangodb" ] || [$i== "mysql" ] || [ $i== "redis" ]
   then 
    instance_type=t3.small
 
