@@ -21,8 +21,8 @@ do
     --hosted-zone-id Z03864262OMVQMXMFTVWQ \
     --change-batch "
    {
-    "Comment": "Testing creating a record set"
-    ,"Changes": [{
+     "Comment": "Testing creating a record set"
+     ,"Changes": [{
       "Action"              : "CREATE"
       ,"ResourceRecordSet"  : {
         "Name"              : "$i .prasuna.site"
@@ -32,9 +32,9 @@ do
             "Value"         : "$IP_ADDRESS"
         }]
       }
-    }]
-  }
-  "
+      }]
+     }
+     "
  done
 
  
