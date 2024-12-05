@@ -4,7 +4,7 @@ AMI=ami-0b4f379183e5706b9
 SG_ID=sg-05ea3dc55b6da7ad6
 Zone_ID=Z03864262OMVQMXMFTVWQ
 Domain_ID=prasuna.site
-Instances=("Mangodb" "mysql" "redis" "user" "cart" "web" "shipping" "payments" "dispatch" "rabitmq" "catalogue")
+INSTANCES=("Mangodb" "mysql" "redis" "user" "cart" "web" "shipping" "payments" "dispatch" "rabitmq" "catalogue")
 
 for i in "${INSTANCES[@]}"
 do 
