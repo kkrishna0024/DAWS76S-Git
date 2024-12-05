@@ -2,6 +2,8 @@
 
 AMI=ami-0b4f379183e5706b9
 SG_ID=sg-05ea3dc55b6da7ad6
+Zone_ID=Z03864262OMVQMXMFTVWQ
+Domain_ID=prasuna.site
 Instances=("Mangodb" "mysql" "redis" "user" "cart" "web" "shipping" "payments" "dispatch" "rabitmq" "catalogue")
 
 for i in "${INSTANCES[@]}"
@@ -18,14 +20,14 @@ do
    echo "$i: $IP_ADDRESS"
 
     aws route53 change-resource-record-sets \
-    --hosted-zone-id Z03864262OMVQMXMFTVWQ \
+    --hosted-zone-id $Zone_ID \
     --change-batch "
    {
      "Comment": "Testing creating a record set"
      ,"Changes": [{
       "Action"              : "CREATE"
       ,"ResourceRecordSet"  : {
-        "Name"              : "$i .prasuna.site"
+        "Name"              : "$i.$Domain_ID"
         ,"Type"             : "A"
         ,"TTL"              : 1
         ,"ResourceRecords"  : [{
@@ -33,8 +35,8 @@ do
         }]
       }
       }]
-     }
-     "
+    }
+    "
  done
 
  
