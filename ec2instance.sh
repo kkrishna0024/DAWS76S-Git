@@ -27,11 +27,11 @@ do
         ,"Changes": [{
           "Action"              : "CREATE"
           ,"ResourceRecordSet"  : {
-            "Name"              : "$i.$Domain_ID"
+            "Name"              : "'$i.$Domain_ID'"
             ,"Type"             : "A"
             ,"TTL"              : 1
             ,"ResourceRecords"  : [{
-                "Value"         : "$IP_ADDRESS"
+                "Value"         : "'$IP_ADDRESS'"
             }]
           }
         }]
