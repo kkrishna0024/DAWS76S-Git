@@ -20,23 +20,23 @@ do
    echo "$i: $IP_ADDRESS"
 
    aws route53 change-resource-record-sets \
-  --hosted-zone-id $Zone_ID \
-  --change-batch '
-  {
-    "Comment": "Testing creating a record set"
-    ,"Changes": [{
-      "Action"              : "CREATE"
-      ,"ResourceRecordSet"  : {
-        "Name"              : "$i.$Domain_ID"
-        ,"Type"             : "A"
-        ,"TTL"              : 1
-        ,"ResourceRecords"  : [{
-            "Value"         : "$IP_ADDRESS"
+    --hosted-zone-id $Zone_ID \
+    --change-batch '
+      {
+        "Comment": "Testing creating a record set"
+        ,"Changes": [{
+          "Action"              : "CREATE"
+          ,"ResourceRecordSet"  : {
+            "Name"              : "$i.$Domain_ID"
+            ,"Type"             : "A"
+            ,"TTL"              : 1
+            ,"ResourceRecords"  : [{
+                "Value"         : "$IP_ADDRESS"
+            }]
+          }
         }]
       }
-    }]
-  }
-  '
+      '
  done
 
  
