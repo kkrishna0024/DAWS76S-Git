@@ -8,7 +8,7 @@ INSTANCES=("Mangodb" "mysql" "redis" "user" "cart" "web" "shipping" "payments" "
 
 for i in "${INSTANCES[@]}"
 do 
-  if [ $i == "Mangodb" ] || [$i== "mysql" ] || [ $i== "redis" ]
+  if [ "$i" == "mangodb" ] || [ "$i" == "mysql" ] || [ "$i" == "redis" ]
   then 
    INSTANCE_TYPE=t3.small
 
