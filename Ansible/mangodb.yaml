@@ -27,6 +27,6 @@
 
   - name: start and enable  mangodb 
     ansible.builtin.service:
-       name: mangod
+       name: mongod
        state: restarted
       
