@@ -59,10 +59,6 @@
       ansible.builtin.command: mongo --host Mangodb.prasuna.site --quiet --eval 'db = db.getSiblingDB("catalogue"); db.product.count()'
        register: product_count
       
-    - name: print the product count
-      ansible.builtin.debug: 
-        msg: " product count: {{product_count}} "
-
     - name: load schema
       ansible.builtin.command: mongo --host Mangodb.prasuna.site </app/schema/catalogue.js
         when: product_count.sdtout == 0
