@@ -1,5 +1,5 @@
-- name: catalogue
-  hosts: catalogue
+- name: catalouge
+  hosts: catalouge
   become: yes
   tasks:
     - name: disable nodejs and enable nodejs 18
