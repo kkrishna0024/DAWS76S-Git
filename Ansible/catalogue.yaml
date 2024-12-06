@@ -55,21 +55,21 @@
          name: mongodb-org-shell
          state: present
 
-    - name: get the catagories count
-      ansible.builtin.command: mongo --host mangodb.prasuna.site --quiet --eval 'db=db.getSiblingDB("catalogue"); db.products.count()'
-       register: product_count
+    # - name: get the catagories count
+    #   ansible.builtin.command: mongo --host mangodb.prasuna.site --quiet --eval 'db=db.getSiblingDB("catalogue"); db.products.count()'
+    #    register: product_count
 
-    - name: print product count
-      ansible.builtin.debug:
-       msg: " product count {{product_count}}"
+    # - name: print product count
+    #   ansible.builtin.debug:
+    #    msg: " product count {{product_count}}"
       
-    # - name: load schema
-    #   ansible.builtin.command: mongo --host mangodb.prasuna.site </app/schema/catalogue.js
-    #     # when: product_count.sdtout == 0
+    - name: load schema
+      ansible.builtin.command: mongo --host mangodb.prasuna.site </app/schema/catalogue.js
+        # when: product_count.sdtout == 0
 
-    # - name: start and enable  catalogue 
-    #   ansible.builtin.service:
-    #       name: catalogue
-    #       state: restarted
-    #       enabled: yes
+    - name: start and enable  catalogue 
+      ansible.builtin.service:
+          name: catalogue
+          state: restarted
+          enabled: yes
       
