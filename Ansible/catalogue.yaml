@@ -1,5 +1,5 @@
 - name: catalouge
-  hosts: localhost
+  hosts: catalouge
   become: yes
   tasks:
     - name: disable nodejs and enable nodejs 18
@@ -55,7 +55,7 @@
          state: present
 
     - name: get the catagories count
-      ansible.builtin.command: mongo --host Mangodb.prasuna.site --quite --eval 'db = db.getSiblingDB ("catalogue") ; db.products.count()'
+      ansible.builtin.command: mongo --host Mangodb.prasuna.site --quite --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
         register: product_count
       
     - name: print the product count
