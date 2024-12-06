@@ -1,14 +1,14 @@
 - name: catalouge
-  hosts: catalogue
+  hosts: localhost
   become: yes
   tasks:
     - name: disable nodejs and enable nodejs 18
       ansible.builtin.shell: dnf module disable nodejs -y ; dnf module disable nodejs -y ; dnf install nodejs -y
 
-    # - name: install nodejs
-    #   ansible.builtin.dnf:
-    #     name: nodejs
-    #     state: present
+    - name: install nodejs
+      ansible.builtin.dnf:
+        name: nodejs
+        state: present
     
     - name: create user roboshop
       ansible.builtin.user:
