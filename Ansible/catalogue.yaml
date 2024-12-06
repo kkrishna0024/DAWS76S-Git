@@ -1,5 +1,5 @@
 - name: catalouge
-  hosts: catalogue
+  hosts: catalogue.prasuna.site
   become: yes
   tasks:
     - name: disable nodejs and enable nodejs 18
