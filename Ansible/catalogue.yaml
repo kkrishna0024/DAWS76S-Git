@@ -21,58 +21,58 @@
         state: directory
 
     - name: Download the application code
-       ansible.builtin.get_url:
+      ansible.builtin.get_url:
          url: https://roboshop-builds.s3.amazonaws.com/catalogue.zip
          dest: /tmp 
 
     - name: extract catalog zip
-        ansible.builtin.unarchive:
+      ansible.builtin.unarchive:
          src: /tmp/catalogue.zip
          dest: /app  
          remote_src: yes
 
     - name: install dependencies
-        ansible.builtin.command: npm install
+      ansible.builtin.command: npm install
          args:
            chdir: /app
      
     - name: copy catalogue service
-        ansible.builtin.copy:
+      ansible.builtin.copy:
          src: catalogue.service
          dest: /etc/systemd/system/catalogue.service 
 
     - name: daemon reload
-        ansible.builtin.systemd_service:
+      ansible.builtin.systemd_service:
            daemon_reload: true
          
     - name: daemon reload
-        ansible.builtin.systemd_service:
+      ansible.builtin.systemd_service:
            daemon_reload: true
 
     - name: copy mangodb repo
-        ansible.builtin.copy:
+      ansible.builtin.copy:
          src: mangodb.repo
          dest: /etc/yum.repos.d/mongo.repo
 
     - name: install  mangodb client
-        ansible.builtin.package:
+      ansible.builtin.package:
          name: mongodb-org-shell
          state: present
 
     - name: get the catagories count
-        ansible.builtin.command: mongo --host Mongodb.prasuna.site --quite --eval 'db = db.getSiblingDB("catalogue") ; db.products.count()'
+      ansible.builtin.command: mongo --host Mongodb.prasuna.site --quite --eval 'db = db.getSiblingDB("catalogue") ; db.products.count()'
          register: product_count
       
     - name: print the product count
-        ansible.builtin.debug: 
+      ansible.builtin.debug: 
         msg: " product count: {{product_count}} "
 
      - name: load schema
-        ansible.builtin.command: mongo --host Mongodb.prasuna.site </app/schema/catalogue.js
+      ansible.builtin.command: mongo --host Mongodb.prasuna.site </app/schema/catalogue.js
         when: product_count.sdtout == 0
 
     - name: start and enable  catalogue 
-        ansible.builtin.service:
+      ansible.builtin.service:
           name: catalogue
           state: restarted
           enabled: yes
