@@ -1,7 +1,6 @@
 - name: catalogue
   hosts: catalogue
   become: yes
-
   tasks:
     - name: disable nodejs and enable nodejs 18
       ansible.builtin.shell: dnf module disable nodejs -y ; dnf module disable nodejs -y
@@ -33,8 +32,8 @@
 
     - name: install dependencies
       ansible.builtin.command: npm install
-         args:
-           chdir: /app
+        args:
+          chdir: /app
      
     - name: copy catalogue service
       ansible.builtin.copy:
