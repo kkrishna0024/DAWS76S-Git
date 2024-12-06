@@ -3,10 +3,12 @@
   become: yes
   tasks:
     - name: disable nodejs and enable nodejs 18
-      ansible.builtin.shell: dnf module disable nodejs -y ; dnf module disable nodejs -y 
+      ansible.builtin.shell: dnf module disable nodejs -y ; dnf module enable nodejs:18 -y 
 
     - name: install nodejs
-      ansible.builtin.shell: dnf install nodejs -y
+      ansible.builtin.dnf: 
+        name: nodejs 
+        state: present
        
 
     - name: create user roboshop
