@@ -10,11 +10,6 @@
        name: nodejs
        state: present
 
-    - name: install nodejs
-      ansible.builtin.dnf:
-        name: nodejs
-        state: present
-    
     - name: create user roboshop
       ansible.builtin.user:
         name: roboshop
