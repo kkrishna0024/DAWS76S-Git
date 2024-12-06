@@ -2,15 +2,15 @@
   hosts: Mangodb
   become: yes
   tasks:
-  - name: copy mangodb repo
+  - name: copy mongodb repo
     ansible.builtin.copy:
-      src: mangodb.repo
+      src: mongodb.repo
       dest: /etc/yum.repos.d/mongo.repo
       remote_src: yes
 
   - name: install  mangodb 
     ansible.builtin.package:
-      name: mangodb-org
+      name: mongodb-org
       state: present
 
   - name: start and enable  mangodb 
