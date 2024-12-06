@@ -56,7 +56,7 @@
          state: present
 
     - name: get the catagories count
-      ansible.builtin.shell: mongo --host mangodb.prasuna.site --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
+      ansible.builtin.command: mongo --host mangodb.prasuna.site --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
        register: product_count
 
     - name: print product count
