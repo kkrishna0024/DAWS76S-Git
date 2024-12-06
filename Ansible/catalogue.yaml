@@ -33,7 +33,7 @@
     - name: install dependencies
       ansible.builtin.command: npm install
         args:
-          chdir: /app
+         chdir: /app
      
     - name: copy catalogue service
       ansible.builtin.copy:
@@ -42,16 +42,16 @@
 
     - name: daemon reload
       ansible.builtin.systemd_service:
-           daemon_reload: true
+        daemon_reload: true
          
     - name: daemon reload
       ansible.builtin.systemd_service:
-           daemon_reload: true
+        daemon_reload: true
 
     - name: copy mangodb repo
       ansible.builtin.copy:
-         src: mangodb.repo
-         dest: /etc/yum.repos.d/mongo.repo
+        src: mongodb.repo
+        dest: /etc/yum.repos.d/mongo.repo
 
     - name: install  mangodb client
       ansible.builtin.package:
@@ -60,13 +60,13 @@
 
     - name: get the catagories count
       ansible.builtin.command: mongo --host Mongodb.prasuna.site --quite --eval 'db = db.getSiblingDB("catalogue") ; db.products.count()'
-         register: product_count
+        register: product_count
       
     - name: print the product count
       ansible.builtin.debug: 
         msg: " product count: {{product_count}} "
 
-     - name: load schema
+    - name: load schema
       ansible.builtin.command: mongo --host Mongodb.prasuna.site </app/schema/catalogue.js
         when: product_count.sdtout == 0
 
