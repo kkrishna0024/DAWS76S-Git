@@ -54,9 +54,9 @@
          name: mongodb-org-shell
          state: present
 
-    - name: get the catagories count
-      ansible.builtin.command: mongo --host Mangodb.prasuna.site --quite --eval 'db = db.getSiblingDB("catalogue"); db.product.count()'
-       register: product_count
+    # - name: get the catagories count
+    #   ansible.builtin.command: mongo --host Mangodb.prasuna.site --quite --eval 'db = db.getSiblingDB("catalogue"); db.product.count()'
+    #    register: product_count
       
     - name: print the product count
       ansible.builtin.debug: 
