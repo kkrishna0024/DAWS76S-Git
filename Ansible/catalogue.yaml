@@ -66,6 +66,8 @@
     - name: load schema
       ansible.builtin.command: mongo --host mangodb.prasuna.site </app/schema/catalogue.js
         # when: product_count.sdtout == 0
+      args:
+        chdir: /app
 
     - name: start and enable  catalogue 
       ansible.builtin.service:
