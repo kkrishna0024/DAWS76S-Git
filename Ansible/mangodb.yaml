@@ -1,5 +1,5 @@
 - name: mangodb
-  hosts:mangodb
+  hosts: Mangodb
   become: yes
 
   - name: copy mangodb repo
