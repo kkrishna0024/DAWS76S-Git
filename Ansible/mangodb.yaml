@@ -19,13 +19,13 @@
       enabled: yes
 
   - name: allo remote connection
-  ansible.builtin.replace:
-    path: /etc/mongod.conf
-    regexp: '127.0.0.1'
-    replace: '0.0.0.0'
+    ansible.builtin.replace:
+     path: /etc/mongod.conf
+     regexp: '127.0.0.1'
+     replace: '0.0.0.0'
 
     - name: start and enable  mangodb 
-    ansible.builtin.service:
-      name: mangod
-      state: restarted
+      ansible.builtin.service:
+       name: mangod
+       state: restarted
       
