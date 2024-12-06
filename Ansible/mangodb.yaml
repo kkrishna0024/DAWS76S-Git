@@ -7,7 +7,7 @@
       src: mangodb.repo
       dest: /etc/yum.repos.d/mongo.repo
 
-   - name: install  mangodb 
+  - name: install  mangodb 
     ansible.builtin.package:
       name: mangodb-org
       state: present
