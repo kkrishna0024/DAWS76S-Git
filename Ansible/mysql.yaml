@@ -16,7 +16,7 @@
       name: mysql-community-server
       state: present
 
-  - name: start mysql service
+   - name: start mysql service
      ansible.builtin.service:
       name: mysqld
       state: started
