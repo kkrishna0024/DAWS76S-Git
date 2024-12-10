@@ -1,0 +1,14 @@
+- name: variables from prompt
+  hots: localhost
+  vars_peompt:
+  - name: username
+    prompt: please enter user name
+    private: false #user can see what they are entering
+  - name: password
+    prompt: please enter password
+    private: true #user can not see what they are entering
+
+  tasks:
+  - name: enter the credentials
+    ansible.builtin.debug:
+    msg: "hi enter {{username}}, and password{{password}}"

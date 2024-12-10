@@ -1,0 +1,27 @@
+- name: checking data types
+  hosts: localhost
+  vars:
+   NAME: MURALI # KEY VALUE
+   SKILLS:
+    - DEVOPS
+    - STORAGE
+    - AWS
+    - LINUX
+    EXPERIENCE:
+     DECOPS: 4
+     DOCKER: 3
+     KUBERNETES: 2
+
+    TASKS:
+
+   - NAME: PRINT LIST
+     ANSIBLE.BUILTIN.DEBUG:
+     MSG: "SKILLS:" {{SKILLS}}
+   - NAME: PRINT KEY VALUSE PAIR
+     ANSIBLE.BUILTIN.DEBUG:
+     MSG: "SKILLS:" {{NAME}}
+
+   - NAME: PRINT MAP
+     ANSIBLE.BUILTIN.DEBUG:
+     MSG: "SKILLS:" {{EXPERIENCE}}
+
