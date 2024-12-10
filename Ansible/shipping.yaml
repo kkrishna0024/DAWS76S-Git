@@ -19,7 +19,7 @@
          url: https://roboshop-builds.s3.amazonaws.com/shipping.zip
          dest: /tmp 
 
-   - name: extract user zip
+   - name: extract shipping zip
      ansible.builtin.unarchive:
          src: /tmp/shipping.zip
          dest: /app  
@@ -28,23 +28,21 @@
    - name: install dependencies
      ansible.builtin.command: mvn clean package
      args:
-        chdir: /app
+      chdir: /app
 
    - name: rename jar file
      ansible.builtin.command: mv target/shipping-1.0.jar shipping.jar
      args:
-        chdir: /app
+      chdir: /app
 
    - name: Setup SystemD Shipping Service
      ansible.builtin.copy: 
        src: shipping.service
        dest: /etc/systemd/system/shipping.service
 
-
    - name: daemon reload
      ansible.builtin.systemd_service:
         daemon_reload: true
-
 
    - name: install mysql client
      ansible.builtin.dnf:
@@ -62,3 +60,9 @@
    - name: load schema data
      ansible.builtin.shell: "mysql -h mysql.prasuna.site -uroot -p{{mysql_password}} < /app/schema/shipping.sql "
      when: schema.stdout != "1"
+
+   - name: start and enable  shipping 
+     ansible.builtin.service:
+        name: shipping
+        state: restarted
+        enabled: yes
