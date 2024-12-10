@@ -60,5 +60,5 @@
        msg: "schema output: {{schema}}"
 
    - name: load schema data
-     ansible.builtin.command: "mysql -h mysql.prasuna.site -uroot -p{{mysql_password}} < /app/schema/shipping.sql ""
+     ansible.builtin.command: "mysql -h mysql.prasuna.site -uroot -p{{mysql_password}} < /app/schema/shipping.sql "
      when: schema.stdout != "1"
