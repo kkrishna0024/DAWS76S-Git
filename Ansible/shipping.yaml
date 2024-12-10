@@ -1,7 +1,7 @@
 - name: install shipping components
   hosts: shipping
   become: yes
-   vars:
+  vars:
     mysql_password: pRoboShop@1
   tasks:
    - name: instal maven
