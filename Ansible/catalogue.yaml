@@ -67,7 +67,7 @@
       
     - name: load schema
       ansible.builtin.command: mongo --host mangodb.prasuna.site < /app/schema/catalogue.js
-      when: product_count.sdtout == "0"
+      when: product_count.stdout == "0"
       args:
         chdir: /app
 
